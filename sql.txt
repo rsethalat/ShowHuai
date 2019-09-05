@@ -1,0 +1,89 @@
+-- phpMyAdmin SQL Dump
+-- version 4.4.15.9
+-- https://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Sep 04, 2019 at 01:53 AM
+-- Server version: 5.6.37
+-- PHP Version: 7.1.8
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+07:00";
+
+--
+-- Database: `showhuai`
+--
+CREATE DATABASE IF NOT EXISTS `showhuai` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `showhuai`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `API`
+--
+
+CREATE TABLE IF NOT EXISTS `API` (
+  `apikey` varchar(32) NOT NULL,
+  `expiry` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `PRODUCT`
+--
+
+CREATE TABLE IF NOT EXISTS `PRODUCT` (
+  `id` varchar(4) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `price` float NOT NULL DEFAULT '0',
+  `qty` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `SALE`
+--
+
+CREATE TABLE IF NOT EXISTS `SALE` (
+  `no` int(11) NOT NULL,
+  `datetime` datetime NOT NULL,
+  `id` varchar(4) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `amount` float NOT NULL,
+  `payment` varchar(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `API`
+--
+ALTER TABLE `API`
+  ADD PRIMARY KEY (`apikey`);
+
+--
+-- Indexes for table `PRODUCT`
+--
+ALTER TABLE `PRODUCT`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `ID` (`id`);
+
+--
+-- Indexes for table `SALE`
+--
+ALTER TABLE `SALE`
+  ADD PRIMARY KEY (`no`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `SALE`
+--
+ALTER TABLE `SALE`
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT;
